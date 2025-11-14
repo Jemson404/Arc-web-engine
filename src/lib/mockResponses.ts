@@ -51,9 +51,6 @@ function getRandomElement<T>(array: T[]): T {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-function truncateString(str: string, maxLength: number): string {
-  return str.length > maxLength ? str.substring(0, maxLength) + '...' : str;
-}
 
 export function getArc0Reply(prompt: string): string {
   const baseResponse = getRandomElement(arc0Responses);
