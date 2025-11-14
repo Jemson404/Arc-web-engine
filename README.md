@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ARC Engine - PRD v3
+
+**Two Minds. One Spark.**
+
+ARC Engine is a conversational AI interface that synthesizes dual perspectives—analytical precision (ARC-0) and creative intuition (ARC-1)—into unified insights through intelligent spark generation.
+
+## Features
+
+### Multi-Panel Architecture
+- **User Prompt Stream**: Displays user queries
+- **ARC-0 (Analytical)**: Provides logical, systematic analysis
+- **ARC-1 (Creative)**: Offers imaginative, unconventional perspectives  
+- **Summary Panel**: Synthesizes both perspectives
+- **Spark Panel**: Conditionally appears with breakthrough insights
+
+### Smart Classifier
+- Analyzes each query to determine if spark insight is needed
+- Returns `NEEDS_SPARK` or `NO_SPARK` classification
+- Integrates seamlessly into message pipeline
+
+### Streaming Responses
+- Real-time typewriter effects for ARC-0 responses
+- Flickering scanline effects for ARC-1 responses
+- Panel-specific animation speeds
+- Live cursor indicators during streaming
+
+### Idle Animations
+- Particle drift effects (<4% opacity)
+- Breathing glow on panels
+- Scanline overlays
+- Static flicker background
+- All powered by Framer Motion
+
+### Glassmorphic Design
+- SparkSummaryPanel with glass morphism
+- Backdrop blur effects
+- Shimmer animations
+- Purple accent palette with glow effects
+- Animated ✦ spark icon with pulse
+
+## Tech Stack
+
+- **Framework**: Next.js 16.0.1 with Turbopack
+- **Animation**: Framer Motion
+- **State Management**: Zustand
+- **Styling**: Tailwind CSS v4
+- **Language**: TypeScript
 
 ## Getting Started
 
-First, run the development server:
-
+### Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Run Development Server
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Build for Production
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+### Linting
+```bash
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/
+│   ├── api/              # API routes (classifier, arc0, arc1, summary, spark)
+│   ├── arc/              # Main ARC interface
+│   ├── layout.tsx        # Root layout
+│   ├── page.tsx          # Landing page
+│   └── globals.css       # Global styles
+├── components/           # Reusable UI components
+│   ├── BackgroundAnimation.tsx
+│   ├── InputBar.tsx
+│   ├── MessageBubble.tsx
+│   ├── Panel.tsx
+│   └── SparkPanel.tsx
+└── store/
+    └── useArcStore.ts    # Zustand state management
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## API Endpoints
 
-## Deploy on Vercel
+All endpoints are currently mocked for MVP:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `POST /api/classifier` - Classifies messages as NEEDS_SPARK or NO_SPARK
+- `POST /api/arc0` - Streams analytical responses
+- `POST /api/arc1` - Streams creative responses
+- `POST /api/summary` - Generates synthesis
+- `POST /api/spark` - Creates spark insights
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Development Notes
+
+- The application is offline-first ready
+- All mock responses can be easily replaced with real API calls
+- State management is centralized using Zustand
+- Animations use Framer Motion for smooth performance
+- Responsive design: 4-column desktop, single-column mobile
+
+## PRD v3 Compliance
+
+✅ Multi-panel UI architecture  
+✅ LLM classifier integration  
+✅ Streaming responses with animations  
+✅ Idle animation system  
+✅ InputBar with correct placeholder  
+✅ Mock API endpoints  
+✅ Glassmorphic SparkSummaryPanel  
+✅ Framer Motion & Zustand integration  
+✅ Offline-first philosophy  
+✅ Clean, minimal codebase  
+
+## License
+
+Private repository - All rights reserved.
