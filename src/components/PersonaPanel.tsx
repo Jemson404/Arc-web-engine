@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { PersonaType } from '@/types/arc';
 
 interface PersonaPanelProps {
   title: string;
