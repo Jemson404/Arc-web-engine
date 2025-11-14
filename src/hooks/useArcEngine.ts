@@ -28,7 +28,7 @@ function loadStateFromStorage(): ArcState | null {
       const parsed = JSON.parse(stored);
       // Convert timestamp strings back to Date objects
       if (parsed.messages) {
-        parsed.messages = parsed.messages.map((msg: any) => ({
+        parsed.messages = parsed.messages.map((msg: Message) => ({
           ...msg,
           timestamp: new Date(msg.timestamp)
         }));
@@ -37,7 +37,7 @@ function loadStateFromStorage(): ArcState | null {
         parsed.currentTurn.timestamp = new Date(parsed.currentTurn.timestamp);
       }
       if (parsed.history) {
-        parsed.history = parsed.history.map((item: any) => ({
+        parsed.history = parsed.history.map((item: { id: string; promptPreview: string; timestamp: Date }) => ({
           ...item,
           timestamp: new Date(item.timestamp)
         }));
