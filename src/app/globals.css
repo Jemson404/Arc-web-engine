@@ -3,6 +3,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --arc-0-bg: #1a2f1a;
+  --arc-0-border: #2d5016;
+  --arc-0-text: #4ade80;
+  --arc-1-bg: #2a1a1a;
+  --arc-1-border: #501616;
+  --arc-1-text: #f87171;
+  --spark-bg: #2d1b69;
+  --spark-border: #6b46c1;
+  --spark-accent: #00d4ff;
+  --main-bg: #111111;
 }
 
 @theme inline {
