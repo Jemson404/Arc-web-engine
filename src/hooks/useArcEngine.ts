@@ -92,7 +92,7 @@ export function useArcEngine() {
       // Generate responses
       const arc0Content = getArc0Reply(prompt);
       const arc1Content = getArc1Reply(prompt);
-      const sparkResult = getSparkSummary(arc0Content, arc1Content, prompt);
+      const sparkResult = getSparkSummary(arc0Content, arc1Content);
 
       // Create messages
       const userMessage = createMessage('user', prompt);
