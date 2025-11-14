@@ -90,16 +90,12 @@ export function getArc1Reply(prompt: string): string {
   return baseResponse;
 }
 
-export function getSparkSummary(arc0Reply: string, arc1Reply: string, prompt: string): SparkSummary {
+export function getSparkSummary(arc0Reply: string, arc1Reply: string): SparkSummary {
   const reconciliation = getRandomElement(reconciliationTemplates);
   const nextStep = getRandomElement(nextStepTemplates);
 
   // Create reconciliation based on the actual responses
   let finalReconciliation = reconciliation;
-
-  // Extract key themes from the responses
-  const arc0Themes = arc0Reply.toLowerCase().includes('risk') ? 'caution' : 'practicality';
-  const arc1Themes = arc1Reply.toLowerCase().includes('opportunity') ? 'opportunity' : 'possibility';
 
   if (arc0Reply.toLowerCase().includes('systematically') && arc1Reply.toLowerCase().includes('unconventional')) {
     finalReconciliation = `Your systematic thinking and creative vision both serve you. ${nextStep}`;
