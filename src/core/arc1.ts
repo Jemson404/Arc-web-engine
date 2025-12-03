@@ -7,6 +7,6 @@ export function generateARC1Text(input: string): string {
     '',
     `• If you softened your framing of: "${input.trim()}", what else might it mean?`,
     '• What possibility feels quietly true but unspoken?',
-    '• What angle haven\'t you allowed yourself to entertain yet?'
+    "• What angle haven't you allowed yourself to entertain yet?"
   ].join('\n');
 }
