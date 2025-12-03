@@ -4,6 +4,14 @@
  * This represents the creative/reflective tension between stability and possibility
  */
 
+// Tension calculation weights
+const LENGTH_TENSION_WEIGHT = 0.2;
+const SEMANTIC_TENSION_WEIGHT = 0.4;
+const EMOTIONAL_TENSION_WEIGHT = 0.4;
+
+// Minimum word length for semantic analysis
+const MIN_WORD_LENGTH = 3;
+
 /**
  * Computes the tension delta between two ARC outputs
  * @param arc0Text - Text from ARC-0 (grounding panel)
@@ -22,7 +30,10 @@ export function computeTension(arc0Text: string, arc1Text: string): number {
   const emotionalTension = computeEmotionalTension(arc0Text, arc1Text);
 
   // Weighted combination of tension factors
-  const rawTension = lengthTension * 0.2 + semanticTension * 0.4 + emotionalTension * 0.4;
+  const rawTension =
+    lengthTension * LENGTH_TENSION_WEIGHT +
+    semanticTension * SEMANTIC_TENSION_WEIGHT +
+    emotionalTension * EMOTIONAL_TENSION_WEIGHT;
 
   // Ensure bounded between 0 and 1
   return Math.max(0, Math.min(1, rawTension));
@@ -47,8 +58,8 @@ function computeLengthTension(arc0: string, arc1: string): number {
  * Computes semantic tension based on word overlap/divergence
  */
 function computeSemanticTension(arc0: string, arc1: string): number {
-  const words0 = new Set(arc0.toLowerCase().split(/\s+/).filter((w) => w.length > 3));
-  const words1 = new Set(arc1.toLowerCase().split(/\s+/).filter((w) => w.length > 3));
+  const words0 = new Set(arc0.toLowerCase().split(/\s+/).filter((w) => w.length > MIN_WORD_LENGTH));
+  const words1 = new Set(arc1.toLowerCase().split(/\s+/).filter((w) => w.length > MIN_WORD_LENGTH));
 
   if (words0.size === 0 || words1.size === 0) return 0;
 

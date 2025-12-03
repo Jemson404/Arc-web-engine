@@ -4,7 +4,7 @@
  * Generates the center panel content based on tension and threshold
  */
 
-import type { ArcEngineResponse, ArcMode } from "@/types/arc";
+import type { ArcEngineResponse, ArcMode, UserState } from "@/types/arc";
 import { generateARC0Text } from "@/core/arc0";
 import { generateARC1Text } from "@/core/arc1";
 import { computeTension } from "@/core/tensionEngine";
@@ -75,7 +75,7 @@ export function evaluateSpark(input: string): ArcEngineResponse {
 function generateSparkText(
   arc0Text: string,
   arc1Text: string,
-  userState: string
+  userState: UserState
 ): string {
   // Spark messages are rare insights from the tension between perspectives
   // They should be reflective, not directive
@@ -102,7 +102,7 @@ function generateSparkText(
 function generateSummaryText(
   arc0Text: string,
   arc1Text: string,
-  userState: string
+  userState: UserState
 ): string {
   // Summary messages reflect back without prescribing action
 
