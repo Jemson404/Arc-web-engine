@@ -37,16 +37,18 @@ export default function NavigationCube() {
     <div className="flex flex-col items-center gap-8">
       {/* 3D Cube Container */}
       <div 
-        className="relative w-64 h-64 perspective-1000"
+        className="relative w-64 h-64"
+        style={{ perspective: '1000px' }}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
         {/* Cube */}
         <div 
-          className={`relative w-full h-full transition-transform duration-700 ease-out transform-style-3d ${
+          className={`relative w-full h-full transition-transform duration-700 ease-out ${
             isHovering ? 'scale-105' : ''
           }`}
           style={{
+            transformStyle: 'preserve-3d',
             transform: `rotateY(${activeIndex * -60}deg)`,
           }}
         >

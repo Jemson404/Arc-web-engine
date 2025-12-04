@@ -37,7 +37,7 @@ export default function SettingsPage() {
           
           {/* Spark Sensitivity */}
           <div className="p-6 rounded-xl border border-zinc-800 bg-zinc-900/50">
-            <h3 className="text-lg font-semibold text-white mb-2">Spark Sensitivity</h3>
+            <h3 id="spark-sensitivity-label" className="text-lg font-semibold text-white mb-2">Spark Sensitivity</h3>
             <p className="text-sm text-zinc-500 mb-4">Adjust how often sparks emerge</p>
             <div className="flex items-center gap-4">
               <span className="text-zinc-500 text-sm">Rare</span>
@@ -46,6 +46,7 @@ export default function SettingsPage() {
                 min="0" 
                 max="100" 
                 defaultValue="50"
+                aria-labelledby="spark-sensitivity-label"
                 className="flex-1 h-2 bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
               />
               <span className="text-zinc-500 text-sm">Frequent</span>
