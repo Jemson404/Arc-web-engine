@@ -77,19 +77,19 @@ function ARCDice({ onFaceChange, activeFace, navigateToFaceRef }: ARCDiceProps) 
     if (normalizedX > 180) normalizedX -= 360;
     if (normalizedY > 180) normalizedY -= 360;
     
-    if (normalizedX < -45) return 4;
-    if (normalizedX > 45) return 5;
-    if (normalizedY >= -45 && normalizedY < 45) return 0;
-    if (normalizedY >= 45 && normalizedY < 135) return 1;
-    if (normalizedY >= 135 || normalizedY < -135) return 2;
-    if (normalizedY >= -135 && normalizedY < -45) return 3;
+    if (normalizedX < -45) return 4; // Top - Settings
+    if (normalizedX > 45) return 5;  // Bottom - Sparks Vault
+    if (normalizedY >= -45 && normalizedY < 45) return 0;   // Front - ARC Engine
+    if (normalizedY >= 45 && normalizedY < 135) return 3;   // Left side showing = Purpose (was 1)
+    if (normalizedY >= 135 || normalizedY < -135) return 2; // Back - Manifesto
+    if (normalizedY >= -135 && normalizedY < -45) return 1; // Right side showing = History (was 3)
     return 0;
   }, []);
 
   const navigateToFace = useCallback((faceIndex: number) => {
     const targetRotations: { [key: number]: { x: number; y: number } } = {
-      0: { x: 0, y: 0 }, 1: { x: 0, y: 90 }, 2: { x: 0, y: 180 },
-      3: { x: 0, y: -90 }, 4: { x: -90, y: 0 }, 5: { x: 90, y: 0 },
+      0: { x: 0, y: 0 }, 1: { x: 0, y: -90 }, 2: { x: 0, y: 180 },
+      3: { x: 0, y: 90 }, 4: { x: -90, y: 0 }, 5: { x: 90, y: 0 },
     };
     const target = targetRotations[faceIndex];
     let currentY = rotation.y;
