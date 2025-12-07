@@ -37,9 +37,9 @@ export default function ChatInterface() {
     return (
         <div className="w-full max-w-4xl mx-auto p-4 flex flex-col h-[80vh]">
             <div className="flex-1 overflow-y-auto space-y-6 mb-8 scrollbar-hide">
-                {messages.map((msg, i) => (
+                {messages.map((msg) => (
                     <div
-                        key={i}
+                        key={`${msg.trace_id}-${msg.role}`}
                         className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'
                             }`}
                     >

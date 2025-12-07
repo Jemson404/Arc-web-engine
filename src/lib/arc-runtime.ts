@@ -3,10 +3,6 @@ import { Message, Spark, Dialogue } from './types';
 export class ARCRuntime {
     private messages: Message[] = [];
 
-    constructor() {
-        this.messages = [];
-    }
-
     async processInput(input: string): Promise<Dialogue> {
         const timestamp = Date.now();
         const traceId = crypto.randomUUID();
